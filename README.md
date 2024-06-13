@@ -57,7 +57,7 @@ git clone https://github.com/frothkoetter/dbt_airflow_airlinedata.git
 get CDE virtual Cluster Job API URL
 https://2fksc2c5.cde-mxhdhlq7.se-sandb.a465-9q4k.cloudera.site/dex/api/v1
 
-
+```bash
 % cd
 % cd .cde
 % ls
@@ -66,10 +66,11 @@ config.yml	credentials
 % vi config.yml
 user: frothkoetter
 vcluster-endpoint: https://2fksc2c5.cde-mxhdhlq7.se-sandb.a465-9q4k.cloudera.site/dex/api/v1
-
+```
 
 ## build dbt
 
+```bash
 % cd /../dbt_airlinedata
 
 % ./build-dbt.sh
@@ -82,6 +83,7 @@ Error: create resource failed: resource with name already exists
 {
  "id": 64
 }
+```
 
 This job takes approx 12 minutes to complete
 
@@ -97,10 +99,13 @@ dags:
 
 ## create job
 
+```bash
+ 
 ./create-job.sh
 API User Password:
      1.3KB/1.3KB 100% [==============================================] dbt_airlinedata.py
      5.7MB/5.7MB 100% [==============================================] dbt_airlinedata.zip
+```
 
 Check Airflow UI:
 ![](images/airflow_task_03.png)
