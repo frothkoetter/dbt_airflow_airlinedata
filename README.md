@@ -87,14 +87,13 @@ This job takes approx 12 minutes to complete
 
 check CDE resources
 venvs:
-![](imgages/resources_venvs.png)
+![](images/resources_venvs.png)
 
 requirements:
-![](imgages/resources_requirements.png)
-
+![](images/resources_requirements.png)
 
 dags:
-![](imgages/resources_dags_01.png)
+![](images/resources_dags_01.png)
 
 ## create job
 
@@ -104,4 +103,4 @@ API User Password:
      5.7MB/5.7MB 100% [==============================================] dbt_airlinedata.zip
 
 Check Airflow UI:
-![](imgages/airflow_task_03.png)
+![](images/airflow_task_03.png)
