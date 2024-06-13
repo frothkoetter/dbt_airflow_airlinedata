@@ -49,7 +49,9 @@ STORED AS TEXTFILE LOCATION '/airlinedata-csv/airports' tblproperties("skip.head
 
 ## clone github
 
+```bash
 git clone https://github.com/frothkoetter/dbt_airflow_airlinedata.git
+```
 
 
 ## configure cli
@@ -100,7 +102,7 @@ dags:
 ## create job
 
 ```bash
- 
+
 ./create-job.sh
 API User Password:
      1.3KB/1.3KB 100% [==============================================] dbt_airlinedata.py
