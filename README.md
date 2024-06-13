@@ -9,9 +9,9 @@ Create new database for your user to be used, or use one that is already created
 
 ```sql
 -- Change *** of database name
-CREATE DATABASE DB_USER0**;
+CREATE DATABASE dbt_airlinedata;
 
-USE DB_USER0**;
+USE dbt_airlinedata;
 ```
 
 ## create external Tables - Hue
@@ -49,6 +49,9 @@ STORED AS TEXTFILE LOCATION '/airlinedata-csv/airports' tblproperties("skip.head
 
 ## clone github
 
+git clone https://github.com/frothkoetter/dbt_airflow_airlinedata.git
+
+
 ## configure cli
 
 get CDE virtual Cluster Job API URL
@@ -67,10 +70,10 @@ vcluster-endpoint: https://2fksc2c5.cde-mxhdhlq7.se-sandb.a465-9q4k.cloudera.sit
 
 ## build dbt
 
-./build-dbt.sh
-API User Password:
+% cd /../dbt_airlinedata
 
-% ./build-dbt-airflow.sh
+% ./build-dbt.sh
+API User Password:
 Error: create resource failed: resource with name already exists
     1.4KB/1.4KB 100% [==============================================] build_dbt.py
 Error: create resource failed: resource with name already exists
@@ -80,12 +83,25 @@ Error: create resource failed: resource with name already exists
  "id": 64
 }
 
+This job takes approx 12 minutes to complete
+
+check CDE resources
+venvs:
+![](imgages/resources_venvs.png)
+
+requirements:
+![](imgages/resources_requirements.png)
+
+
+dags:
+![](imgages/resources_dags_01.png)
 
 ## create job
 
 ./create-job.sh
-
-./create-job-airflow.sh
 API User Password:
-Error: create resource failed: resource with name already exists
-     1.8KB/1.8KB 100% [==============================================] dbt_airlinedata.py
+     1.3KB/1.3KB 100% [==============================================] dbt_airlinedata.py
+     5.7MB/5.7MB 100% [==============================================] dbt_airlinedata.zip
+
+Check Airflow UI:
+![](imgages/airflow_task_03.png)
