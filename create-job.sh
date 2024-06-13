@@ -1,8 +1,9 @@
-# Create a resource
+# Create a resources 
 ./cde resource create --name dags 
 ./cde resource upload --name dags --local-path dbt_airlinedata.py 
-#./cde resource create --name projects 
-#./cde resource upload-archive --name projects --local-path dbt_airlinedata.zip
+# Upload dbt project 
+./cde resource create --name projects 
+./cde resource upload-archive --name projects --local-path dbt_airlinedata.zip
 
 # Create Job of “airflow” type and reference the DAG
 ./cde job delete --name dbt_airlinedata 
