@@ -56,8 +56,11 @@ git clone https://github.com/frothkoetter/dbt_airflow_airlinedata.git
 
 ## configure cli
 
-get CDE virtual Cluster Job API URL
+get CDE virtual Cluster Job API URL i.e.:
 https://2fksc2c5.cde-mxhdhlq7.se-sandb.a465-9q4k.cloudera.site/dex/api/v1
+
+![](images/cde_url_01.png)
+
 
 ```bash
 % cd
@@ -83,6 +86,7 @@ Archive:  dbt_airlinedata.zip
 configure profiles.yml in the dbt project with CDW parameter: schema, user, password, host, port, http_path
 
 Note: you get the URL in CDW - VirtualWarehouse - get URL
+
 ![](images/cdw_url_01.png)
 
 ```bash
