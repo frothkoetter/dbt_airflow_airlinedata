@@ -70,11 +70,50 @@ user: frothkoetter
 vcluster-endpoint: https://2fksc2c5.cde-mxhdhlq7.se-sandb.a465-9q4k.cloudera.site/dex/api/v1
 ```
 
-## build dbt
+## configure dbt project
 
 ```bash
-% cd /../dbt_airlinedata
+% unzip dbt_airlinedata.zip
+Archive:  dbt_airlinedata.zip
+   creating: dbt_airlinedata/
+ extracting: dbt_airlinedata/.user.yml  
+....
+```
 
+configure profiles.yml in the dbt project with CDW parameter: schema, user, password, host, port, http_path
+
+Note: you get the URL in CDW - VirtualWarehouse - get URL
+![](images/cdw_url_01.png)
+
+```bash
+
+% cd dbt_airlinedata
+
+% vi profiles.yml
+dbt_airlinedata:
+  outputs:
+    dev_hive:
+      type: hive
+      use_http_transport: true
+      use_ssl: true
+      auth_type: ldap #now also support kerberos
+      schema: "dbt_airlinedata"
+      user: "frothkoetter"
+      password: "YOURPASSWORD"
+      host: "hs2-cdw-aw-se-hive.dw-se-sandboxx-aws.a465-9q4k.cloudera.site"
+      port: 443
+      http_path: "jdbc:hive2://hs2-cdw-aw-se-hive.dw-se-sandboxx-aws.a465-9q4k.cloudera.site/default;transportMode=http;httpPath=cliservice;socketTimeout=60;ssl=true;auth=browser;"
+      threads: 2
+  target: dev_hive
+
+#
+% cd ..
+% zip -r dbt_airlinedata.zip dbt_airlinedata
+```
+
+# build dbt
+
+```bash
 % ./build-dbt.sh
 API User Password:
 Error: create resource failed: resource with name already exists
